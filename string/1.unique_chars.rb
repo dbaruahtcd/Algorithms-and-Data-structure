@@ -1,9 +1,7 @@
 =begin
   Implement an algorithm to determine if a sting has all unique characters.
 =end
-
-require 'test/unit/assertions'
-include Test::Unit::Assertions
+require './spec_helper'
 
 def is_unique_chars(str)
   # assuming the provided string is an ASCII string.

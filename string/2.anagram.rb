@@ -1,9 +1,7 @@
 =begin
   Given two string, decide if one is a permuation of the other
 =end
-
-require 'test/unit/assertions'
-include Test::Unit::Assertions
+require './spec_helper'
 
 #Assumptions: Should the comparision be case sensitive and if spaces should be counted as
 #unique. Assuming case sensitive and spaces are unique
