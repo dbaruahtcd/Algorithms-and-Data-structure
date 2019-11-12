@@ -1,6 +1,7 @@
 # Singly linked list
 
 class SinglyLinkedList
+  attr_reader :head
 
   def initialize
     @head = nil
@@ -89,25 +90,25 @@ class SinglyLinkedList
 end
 
 
-ll = SinglyLinkedList.new
-puts "List after adding: "
-ll.add_to_tail(4)
-ll.add_to_tail(5)
-ll.add_to_tail(6)
-ll.print
+# ll = SinglyLinkedList.new
+# puts "List after adding: "
+# ll.add_to_tail(4)
+# ll.add_to_tail(5)
+# ll.add_to_tail(6)
+# ll.print
 
-puts "List after deleting 5: "
-ll.delete(5)
-ll.print
-
-puts "List after adding 10 after 4 :"
-ll.add_after(4, 10)
-ll.print
-
-ll.add_to_tail(89)
-puts "Finding tail: #{ll.find_tail}"
-
-puts "Finding node before 6: #{ll.find_before(6)}"
-
-puts "Finding non existent value: #{ll.find(78)}"
-puts "Finding existent value 4: #{ll.find(4)}"
+# puts "List after deleting 5: "
+# ll.delete(5)
+# ll.print
+#
+# puts "List after adding 10 after 4 :"
+# ll.add_after(4, 10)
+# ll.print
+#
+# ll.add_to_tail(89)
+# puts "Finding tail: #{ll.find_tail}"
+#
+# puts "Finding node before 6: #{ll.find_before(6)}"
+#
+# puts "Finding non existent value: #{ll.find(78)}"
+# puts "Finding existent value 4: #{ll.find(4)}"
