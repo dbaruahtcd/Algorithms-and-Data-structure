@@ -75,7 +75,7 @@ class SinglyLinkedList
 
 
   class Node
-    attr_reader :data
+    attr_accessor :data
     attr_accessor :next
 
     def initialize(data)
