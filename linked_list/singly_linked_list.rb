@@ -89,6 +89,17 @@ class SinglyLinkedList
   end
 end
 
+def print_list(ll)
+  data = ll.data
+  node = ll.next
+  print "#{data} "
+  while(node)
+    print "#{node.data} "
+    node = node.next
+  end
+  puts ''
+end
+
 
 # ll = SinglyLinkedList.new
 # puts "List after adding: "
