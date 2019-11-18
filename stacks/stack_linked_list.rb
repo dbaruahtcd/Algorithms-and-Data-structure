@@ -61,11 +61,6 @@ class StackLinkedList
       "#{@data}"
     end
   end
-
-  # private
-  # def top
-  #   @top
-  # end
 end
 
 stack = StackLinkedList.new
