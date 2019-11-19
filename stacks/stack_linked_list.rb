@@ -5,6 +5,7 @@ Linked list implementation of a stack
 # Stack uses LIFO ordering. So all new elements goes to the top, and deletion
 # happens from the top as well. It provides 3 basic operations
 # push, pop and peek
+require_relative '../linked_list/node'
 
 class StackLinkedList
   attr_accessor :top
@@ -45,20 +46,6 @@ class StackLinkedList
     while(head)
       puts "#{head}"
       head = head.next
-    end
-  end
-
-  class Node
-    attr_accessor :data
-    attr_accessor :next
-
-    def initialize(data)
-      @data = data
-      @next = nil
-    end
-
-    def to_s
-      "#{@data}"
     end
   end
 end
