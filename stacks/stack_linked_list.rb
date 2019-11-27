@@ -48,16 +48,20 @@ class StackLinkedList
       head = head.next
     end
   end
+
+  def is_empty?
+    @top.nil?
+  end
 end
 
-stack = StackLinkedList.new
-stack.push(11)
-stack.push(3)
-stack.push(5)
-stack.push(1)
-puts "Elements after push are : "
-stack.display
-puts "Popped element : #{stack.pop}"
-puts "Elements after popping are : "
-stack.display
-puts "Top element in the stack: #{stack.peek}"
+# stack = StackLinkedList.new
+# stack.push(11)
+# stack.push(3)
+# stack.push(5)
+# stack.push(1)
+# puts "Elements after push are : "
+# stack.display
+# puts "Popped element : #{stack.pop}"
+# puts "Elements after popping are : "
+# stack.display
+# puts "Top element in the stack: #{stack.peek}"
