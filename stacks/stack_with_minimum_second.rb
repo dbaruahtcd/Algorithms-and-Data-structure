@@ -5,13 +5,11 @@ minimum element. Push, pop and min should all operate in O(1) time.
 
 require '../spec_helper'
 require_relative 'stack_linked_list'
-require 'byebug'
 
 # If our stack is large, we waste a lot of space by keeping track of the min.
 # So instead we can use an additional stack which keeps track of the min
 class StackWithMinSecond < StackLinkedList
   def push(val)
-    # debugger
     super(val)
     if(val < min)
       min_arr.push(val)
