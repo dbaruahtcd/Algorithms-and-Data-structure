@@ -37,12 +37,17 @@ class BinaryTree
   def post_order
     traversal_post_order(@root)
   end
+
+  def breadth_first_search
+    traversal_breadth_first(@root)
+  end
+
   # Delete needs to handle 3 scenarios
   # 1st: Node with no children
   # 2nd: Node with 1 child
   # 3rd: Node with two children
   def delete(val)
-    # @root = delete_recursive(@root, val)
+    @root = delete_recursive(@root, val)
   end
 
 
@@ -73,30 +78,56 @@ class BinaryTree
     end
   end
 
+  def traversal_breadth_first(node)
+    bfs_queue = Queue.new
+    bfs_queue.push(node)
+
+    while(!bfs_queue.empty?)
+      curr_node = bfs_queue.pop
+      print " #{curr_node.val}"
+
+      if(!curr_node.left.nil?)
+        bfs_queue.push(curr_node.left)
+      end
+
+      if(!curr_node.right.nil?)
+        bfs_queue.push(curr_node.right)
+      end
+    end
+
+
+  end
+
   def delete_recursive(node, val)
-    # return if node.nil?
-    #
-    # #Node to delete found
-    # if(val == node.val)
-    #   #1st case
-    #   if(node.left.nil? && node.right.nil?)
-    #     node = nil
-    #     return
-    #   end
-    #
-    #   #2nd case
-    #   if(node.left.nil?)
-    #
-    # end
-    #
-    # if val < node.val
-    #   node.left = delete_recursive(node.left, val)
-    #   return node
-    # else
-    #   node.right = delete_recursive(node.right, val)
-    #   return node
-    # end
-    # node
+
+    return if(node.nil?)
+
+    if(node.val == val)
+      # no children
+      if(node.left.nil? && node.right.nil?)
+        del_val = node.val
+        node = nil
+        return del_val
+      end
+
+      # one children
+      if(node.left.nil?)
+        del_val = node.right.val
+        node.right = nil
+        return del_val
+      end
+
+      #two children: we need to find a node to replace the deleted node.
+      # Hence we will find the smallest child  on the deleted node's right subtree
+      smallest_val = find_smallest_value(node.right)
+      node.value = smallest_val
+      node = delete_recursive(node.right, smallest_val)
+      node
+    end
+  end
+
+  def find_smallest_value(node)
+    node.left.nil? ? node.val : find_smallest_value(node.left)
   end
 
 
@@ -143,3 +174,4 @@ bt.pre_order
 puts
 bt.post_order
 puts
+bt.breadth_first_search
