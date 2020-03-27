@@ -1,6 +1,8 @@
 require_relative 'undirected_graph'
 require_relative '../spec_helper'
 
+# Usually useful for find out if a path exists between two vertices
+# Put unvisited vertices on a stack(through recursion call)
 class DepthFirstPaths
 
   def initialize(graph, source)
