@@ -14,7 +14,7 @@ class UndirectedGraph
   end
 
   # parallel edges and self loops are allowed
-  def add_edge(v ,w)
+  def add_edge(v, w)
     @adj[v].add(w)
     @adj[w].add(v)
   end
@@ -46,15 +46,3 @@ class UndirectedGraph
     end
   end
 end
-
-graph = UndirectedGraph.new(8)
-graph.add_edge(0, 5)
-graph.add_edge(0, 4)
-graph.add_edge(1, 6)
-graph.add_edge(2, 7)
-graph.add_edge(0, 2)
-graph.add_edge(5, 7)
-graph.add_edge(4, 6)
-# graph.to_s
-# puts "Maximum degree of the graph: #{graph.max_degree}"
-assert_equal(3, graph.max_degree)
