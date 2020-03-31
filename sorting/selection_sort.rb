@@ -1,7 +1,10 @@
 require_relative '../spec_helper'
+require_relative 'sort_helper'
 
 # In iteration i, find the index of the smallest remaining entry
 class SelectionSort
+  include SortHelper
+
   def initialize(arr)
     @arr = arr
   end
@@ -14,21 +17,11 @@ class SelectionSort
         min = j if less(@arr[j], @arr[min])
         j += 1
       end
-      exch(i, min)
+      exch(@arr, i, min)
     end
     @arr
   end
   
-  private
-  def less(v, w)
-    (v <=> w) == -1
-  end
-  
-  def exch(i, j)
-    swap = @arr[i]
-    @arr[i] = @arr[j]
-    @arr[j] = swap
-  end
 end
 
 test_arr = [4, 3, 7, 7, 2]
