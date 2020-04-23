@@ -7,6 +7,9 @@ class DirectedEdge
     @weight = weight
   end
   
+  alias :from, @x
+  alias :to, @y
+  
   def to_s
     puts " #{@x} => #{@y} w: #{@weight}"
   end
