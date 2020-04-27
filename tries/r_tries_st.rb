@@ -4,8 +4,13 @@ require_relative '../spec_helper'
 # the entire string length. 
 # Store characters in nodes(not keys) and each node has R children 
 # one for each possible characters
+
 # One drawback is having to create array that's not full used
 # for each node of the array
+
+# For search miss need to examine only a few characters(sub linear performance)
+# R-way trie good choice for small R, too much memory for large R(65536 for Unicode) 
+
 class RTriesST
   attr_accessor :root
   def r_tries_st
@@ -64,7 +69,6 @@ tries.put('linux', 9)
 
 assert_equal(5, tries.get('windows'))
 assert_equal(7, tries.get('mac'))
-assert_equal(9, tries.get('linux'))
 assert_equal(9, tries.get('linux'))
 assert_equal(nil, tries.get('stalman'))
 
