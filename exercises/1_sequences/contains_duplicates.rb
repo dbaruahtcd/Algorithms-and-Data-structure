@@ -28,7 +28,6 @@ end
 # Hash table does the same in O(1). So will be going with hash table
 def contains_duplicates?(num)
   num_hash = {}
-  # for i in 0...arr.length
   num.each do |n|
     return true if num_hash.has_key?(n)
     num_hash[n] = true
