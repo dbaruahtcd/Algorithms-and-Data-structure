@@ -44,16 +44,22 @@ def reverse_list_iterative_second(head)
   prev
 end
 
-# def reverse_list_recursive(head)
-#   if head.nil?  || head.next.nil?
-#     return head
-#   end
-# 
-#   list = reverse_list_helper(head.next)
-#   head.next.next = head
-#   head.next = nil
-#   list
-# end
+# Tricky algorithm. The way to visualize it is to assume that the last few elements are already reversed 
+# so if 1->2->3<-4<-5. So we need to add 2 as the next element of three. to 2.next.next = 2 would do that. 
+# But we need to be careful of 1's next element should be nil.
+# Time complexity: O(n) : n elements in the list
+# Space complexity: O(n). The extra space comes from implicit stack space due to recursion. The recursion 
+  # could go up to nn levels deep.
+def reverse_list_recursive(head)
+  if head.nil?  || head.next.nil?
+    return head
+  end
+
+  list = reverse_list_recursive(head.next)
+  head.next.next = head
+  head.next = nil
+  list
+end
 
 
 class ListNode
@@ -83,6 +89,7 @@ node1.next = ListNode.new(2)
 node1.next.next = ListNode.new(3)
 node1.next.next.next = ListNode.new(4)
 # node1.print(node1)
+
 puts reverse_list_iterative(node1).inspect
 puts reverse_list_iterative_second(node1).inspect
 puts reverse_list_recursive(node1).inspect
