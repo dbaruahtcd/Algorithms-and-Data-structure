@@ -15,6 +15,7 @@ require '../../spec_helper'
 # We could solve it using two arrays, but that would take an O(n) space. We would like to do it in O(1)(the output array doesn't count here in the space complexity)
 # We initialize the element at index 0 for the left array to 1, as there are no elements to the right of it.
 def product_except_self_two_arry(nums)
+  raise ArgumentError if nums.size < 2
   len = nums.length
   left = Array.new(len)
   right = Array.new(len)
@@ -37,5 +38,7 @@ def product_except_self_two_arry(nums)
   result
 end
 
-nums = [1, 2, 3, 4]
-assert_equal([24, 12, 8, 6],product_except_self_two_arry(nums))
+nums = [1]
+puts product_except_self_two_arry(nums)
+# nums = [1, 2, 3, 4]
+# assert_equal([24, 12, 8, 6],product_except_self_two_arry(nums))
