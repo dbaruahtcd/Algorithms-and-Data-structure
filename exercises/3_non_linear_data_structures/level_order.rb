@@ -14,3 +14,27 @@ return its level order traversal as:
   [15,7]
 ]
 =end
+
+# @param {TreeNode} root
+# @return {Integer[][]}
+def level_order(root)
+  levels = []
+  if root.nil?
+    level
+  end
+end
+
+def level_helper(node, level)
+  if node.nil?
+    
+  end
+end
+
+class TreeNode
+  attr_accessor :val, :left, :right
+  def initialize(val, left = nil, right =nil)
+    @val = val
+    @left = left
+    @right = right
+  end
+end
