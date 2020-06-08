@@ -27,6 +27,9 @@ Output: false
 # p : TreeNode
 # q : TreeNode
 # return boolean
+# Time complexity: O(n) since all the nodes of the tree are to be visited
+# Space complexity: O(logn) in the best case of completely balanced tree(stack size = height)
+#                   O(n) in the worst case.
 def is_same_tree(p, q)
   # when both p and q are nil
   return true if p.nil? && q.nil?
