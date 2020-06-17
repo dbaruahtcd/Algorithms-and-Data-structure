@@ -4,7 +4,7 @@ Given n non-negative integers a1, a2, ..., an , where each represents a point at
 n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, 
 which together with x-axis forms a container, such that the container contains the most water.
 =end
-
+require_relative '../../spec_helper'
 
 # Brute force way to solve this would to have two loops running over the array
 # and at each step computing the maximum volume
@@ -49,8 +49,8 @@ end
 height = [1,8,6,2,5,4,8,3,7]
 height1 = [0, 2]
 
-puts max_area(height)
-puts max_area_improved(height)
+assert_equal(49, max_area(height))
+assert_equal(0, max_area(height1))
 
-puts max_area(height1)
-puts max_area_improved(height1)
+assert_equal(49, max_area_improved(height))
+assert_equal(0, max_area_improved(height1))
