@@ -23,7 +23,7 @@ def majority_element_iterative(nums)
       count += 1 if elem == cnt
     end
     
-    return elem if count >= nums.length/2
+    return elem if count > nums.length/2
   end
   -1
 end
@@ -91,7 +91,7 @@ def majority_element_boyer_moore(nums)
       nums[i] == candidate ? (cntr += 1) : (cntr -= 1)
     else 
       candidate = nums[i]
-      cnt = 1
+      cntr = 1
     end
   end
   candidate
@@ -101,9 +101,11 @@ end
 nums1 = [3,2,3]
 
 nums2 = [2,2,1,1,1,2,2]
+nums3 = [10,9,9,9,10]
 
 puts majority_element_iterative(nums1)
 puts majority_element_iterative(nums2)
+puts majority_element_iterative(nums3)
 
 puts majority_element_hsh(nums1)
 puts majority_element_hsh(nums2)
@@ -116,4 +118,5 @@ puts majority_element_randon(nums2)
 
 puts majority_element_boyer_moore(nums1)
 puts majority_element_boyer_moore(nums2)
+puts majority_element_boyer_moore(nums3)
 
