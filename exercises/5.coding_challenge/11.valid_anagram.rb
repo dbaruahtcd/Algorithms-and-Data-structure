@@ -15,7 +15,7 @@ You may assume the string contains only lowercase alphabets.
 Follow up:
 What if the inputs contain unicode characters? How would you adapt your solution to such case?
 =end
-require '../../spec_helper'
+
 # time complexity: O(nlogn)(sorting) + O(n)(comparing)
 # space complexity: O(1)(if sorting uses heap sort) or O(n) if char makes a  copy of the string
 def valid_anagram(s, t)
@@ -52,8 +52,7 @@ def valid_anagram_counter(s, t)
   true
 end
 
-# the hash solution would be an extension for when the charset would contain unicode values
-# It could adapt to any range of characters.
+# 
 def valid_anagram_hsh(s, t)
   str_hsh = {}
   for i in 0...s.length do
@@ -75,20 +74,11 @@ t = "nagrama"
 s1 = "rat"
 t1 = "car"
 
-assert(valid_anagram(s, t))
-assert(valid_anagram_counter(s, t))
-assert(valid_anagram_hsh(s, t))
+puts valid_anagram(s, t)
+puts valid_anagram(s1, t1)
 
-assert(!valid_anagram(s1, t1))
-assert(!valid_anagram_counter(s1, t1))
-assert(!valid_anagram_hsh(s1, t1))
+puts valid_anagram_counter(s, t)
+puts valid_anagram_counter(s1, t1)
 
-
-# puts valid_anagram(s, t)
-# puts valid_anagram(s1, t1)
-# 
-# puts valid_anagram_counter(s, t)
-# puts valid_anagram_counter(s1, t1)
-# 
-# puts valid_anagram_hsh(s, t)
-# puts valid_anagram_hsh(s1, t1)
+puts valid_anagram_hsh(s, t)
+puts valid_anagram_hsh(s1, t1)
