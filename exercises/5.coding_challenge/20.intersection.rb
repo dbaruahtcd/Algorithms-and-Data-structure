@@ -161,3 +161,18 @@ nums4 = [9,4,9,8,4]
 
 puts uniq_intersection(nums1, nums2).inspect
 puts uniq_intersection(nums3, nums4).inspect
+
+
+
+
+=begin
+What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+
+If nums1 fits into the memory, we can use Approach 1 to collect counts for nums1 into a hash map. Then, we can sequentially load and process nums2.
+
+If neither of the arrays fit into the memory, we can apply some partial processing strategies:
+
+Split the numeric range into subranges that fits into the memory. Modify Approach 1 to collect counts only within a given subrange, and call the method multiple times (for each subrange).
+
+Use an external sort for both arrays. Modify Approach 2 to load and process arrays sequentially.
+=end
