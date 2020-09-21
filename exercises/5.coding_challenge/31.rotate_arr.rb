@@ -70,6 +70,7 @@ def rotate_rev(nums, k)
   reverse(nums, 0, nums.length - 1)
   reverse(nums, 0, k -1)
   reverse(nums, k, nums.length - 1)
+  nums
 end
 
 
@@ -83,13 +84,17 @@ def reverse(arr, i, j)
   end
 end
 
-nums = [1,2,3,4,5,6,7]
-nums1 = [-1,-100,3,99]
+nums1 = [1,2,3,4,5,6,7]
+nums11 = [-1,-100,3,99]
+nums2 = [1,2,3,4,5,6,7]
+nums22 = [-1,-100,3,99]
+nums3 = [1,2,3,4,5,6,7]
+nums33 = [-1,-100,3,99]
 k = 3
 k1 = 2
-# assert_equal([5,6,7,1,2,3,4], rotate(nums, k))
-# assert_equal([3, 99, -1, -100], rotate(nums1, k1))
-# assert_equal([5,6,7,1,2,3,4], rotate_imp(nums, k))
-# assert_equal([3, 99, -1, -100], rotate_imp(nums1, k1))
-# assert_equal([5,6,7,1,2,3,4], rotate_rev(nums, k))
-# assert_equal([3, 99, -1, -100], rotate_rev(nums1, k1))
+assert_equal([5,6,7,1,2,3,4], rotate(nums1, k))
+assert_equal([3, 99, -1, -100], rotate(nums11, k1))
+assert_equal([5,6,7,1,2,3,4], rotate_imp(nums2, k))
+assert_equal([3, 99, -1, -100], rotate_imp(nums22, k1))
+assert_equal([5,6,7,1,2,3,4], rotate_rev(nums3, k))
+assert_equal([3, 99, -1, -100], rotate_rev(nums33, k1))
