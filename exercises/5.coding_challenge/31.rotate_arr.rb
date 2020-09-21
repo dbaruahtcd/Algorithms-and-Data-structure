@@ -29,6 +29,7 @@ k >= 0
 =end
 require '../../spec_helper'
 
+# place elements  in their correct place using a separate array
 def rotate(nums, k)
   result = []
   len = nums.length
@@ -45,6 +46,25 @@ def rotate(nums, k)
   end
 end
 
+# have a different array and place elements in i + k % len position
+# Time complexity: O(n) + O(n) ~ O(n) One pass to move, another to copy
+# Space complexity: O(n)
+def rotate_imp(nums, k)
+  result = []
+  for i in 0...nums.length
+    result[(i+k)%nums.length] = nums[i]
+  end
+  result.each_with_index do |n, j|
+    nums[j] = n
+  end
+end
+
 nums = [1,2,3,4,5,6,7]
+nums1 = [-1,-100,3,99]
 k = 3
-assert_equal([5,6,7,1,2,3,4], rotate(nums, k))
+k1 = 2
+# assert_equal([5,6,7,1,2,3,4], rotate(nums, k))
+# assert_equal([3, 99, -1, -100], rotate(nums1, k1))
+
+rotate_imp(nums, k)
+puts nums
