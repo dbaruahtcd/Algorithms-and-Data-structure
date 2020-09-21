@@ -59,12 +59,37 @@ def rotate_imp(nums, k)
   end
 end
 
+#This approach is based on the fact that when we rotate the array k times, k elements from the back end of the 
+# array come to the front and the rest of the elements from the front shift backwards.
+# In this approach, we firstly reverse all the elements of the array. Then, reversing the first k 
+# elements followed by reversing the rest n-kn−k elements gives us the required result.
+
+# running time : O(n)
+# space complexity: O(1)
+def rotate_rev(nums, k)
+  reverse(nums, 0, nums.length - 1)
+  reverse(nums, 0, k -1)
+  reverse(nums, k, nums.length - 1)
+end
+
+
+def reverse(arr, i, j)
+  while(i < j)
+    temp = arr[j]
+    arr[j] = arr[i]
+    arr[i] = temp
+    i += 1
+    j -= 1
+  end
+end
+
 nums = [1,2,3,4,5,6,7]
 nums1 = [-1,-100,3,99]
 k = 3
 k1 = 2
 # assert_equal([5,6,7,1,2,3,4], rotate(nums, k))
 # assert_equal([3, 99, -1, -100], rotate(nums1, k1))
-
-rotate_imp(nums, k)
-puts nums
+# assert_equal([5,6,7,1,2,3,4], rotate_imp(nums, k))
+# assert_equal([3, 99, -1, -100], rotate_imp(nums1, k1))
+# assert_equal([5,6,7,1,2,3,4], rotate_rev(nums, k))
+# assert_equal([3, 99, -1, -100], rotate_rev(nums1, k1))
