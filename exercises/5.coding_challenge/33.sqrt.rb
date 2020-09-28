@@ -24,13 +24,11 @@ require '../../spec_helper'
 # Time complexity: O(1)
 # Space complexity: O(1)
 def sqrt(x)
-  return x if x < 2
-  left = Math::E ** (0.5 * Math.log(x))
+  return x if (x < 2)
+  left = (Math::E ** (0.5 * Math.log(x))).to_i
   right = left + 1
   (right * right) > x ? left.to_i : right.to_i
 end
-
-x = 3.14
 
 # solution 2 newtons formula
 # x(k+1) = 1/2[xk + x/xk] converges to sqrt(x) if x0 = x
@@ -47,8 +45,10 @@ def sqrt_newton(x)
   x1.to_i
 end
 
-x1 = 3.14
-
-assert_equal(1, sqrt(x))
-assert_equal(1, sqrt_newton(x))
+assert_equal(2, sqrt(4))
+assert_equal(1, sqrt(3))
+assert_equal(3, sqrt(9))
+assert_equal(2, sqrt_newton(4))
+assert_equal(1, sqrt_newton(3))
+assert_equal(3, sqrt_newton(9))
 
