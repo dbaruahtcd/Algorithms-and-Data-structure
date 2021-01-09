@@ -61,7 +61,8 @@ require '../../spec_helper'
 # The judge node will be the one with 0 in degree and n-1 outdegree.
 
 def find_judge(n, trust)
-  return -1 if trust.length < n - 1 
+  return -1 if trust.length < n - 1
+  return n if trust.empty?
   
   indegree = Array.new(n+1, 0)
   outdegree = Array.new(n+1, 0)
@@ -82,6 +83,7 @@ end
 
 def find_judge_imp(n, trust)
   return -1 if trust.length < n - 1
+  return n if trust.empty?
   
   degree = Array.new(n+1, 0)
   trust.each do |t|
