@@ -43,6 +43,12 @@ def three_sum(arr)
   result
 end
 
+
+class Solution 
+  def three_sum
+  end
+end
+
 arr = [-1,0,1,2,-1,-4]
 
 print three_sum(arr)
