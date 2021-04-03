@@ -18,7 +18,21 @@ Output: 9
 Explanation: The optimal pairing is (2, 1), (2, 5), (6, 6). min(2, 1) + min(2, 5) + min(6, 6) = 1 + 2 + 6 = 9.
 =end
 
-
+# We sort the elements. So in order to maximize the sum we need the difference of the two numbers to be small.
+# Time complexity: O(nlogn) Essentially the sorting time and then we iterate over the array once
+# Space complexity: O(n) or O(logN)
+require '../../spec_helper'
 def array_pair_sum(nums)
-  
+  sum = 0
+  nums.sort!
+  (0...nums.length).step(2) do |n|
+    sum += nums[n]
+  end
+  sum
 end
+
+nums = [1, 4, 3, 2]
+nums1 = [6,2,6,5,1,2] #
+
+assert_equal(array_pair_sum(nums), 4)
+assert_equal(array_pair_sum(nums1), 9)
