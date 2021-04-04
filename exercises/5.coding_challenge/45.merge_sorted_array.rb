@@ -83,3 +83,4 @@ n = 3
 # merge_three_pointers(nums1, m, nums2, n)
  # merge_three_pointers_inplace(nums1, m, nums2, n)
 assert_equal(nums1, [1,2,2,3,5,6])
+
