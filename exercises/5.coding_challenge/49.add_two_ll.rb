@@ -15,29 +15,28 @@ Example 3:
 Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 Output: [8,9,9,9,0,0,0,1]
 =end
-require 'byebug'
+
+# Time complexity: O(max(length(l1, l2)))
+# Space complexity: O(max(length(l1, l2))). Length is atmost O(max(l1, l2) + 1)
+
+# Initialize first node of the result list to 0 and return the next other there are lot of conditionals to check
 def add_two_number(l1, l2)
-  result = nil
+  m, n  = l1, l2
+  result = ListNode.new(0)
+  curr = result
   carry = 0
-  while(!l1.nil? && !l2.nil?)
-    debugger
-    sum = l1.val + l2.val + carry
-    first = sum % 10
+  while(!m.nil? || !n.nil?)
+    x = m.nil? ? 0 : m.val
+    y = n.nil? ? 0 : n.val
+    sum = x + y + carry
+    curr.next = ListNode.new(sum % 10)
     carry = sum / 10
-    l1 = l1.next
-    l2 = l2.next
-    if result.nil?
-      result = ListNode.new(first)
-    elsif l1.nil? && l2.nil?
-      result.next = ListNode.new(first)
-      result.next = ListNode.new(carry)
-    end
+    curr = curr.next
+    m = m.next if !m.nil?
+    n = n.next if !n.nil?
   end
-  if carry != 0
-    result.next = ListNode.new(carry)
-  end
-  debugger
-  result
+  curr.next = ListNode.new(carry) if (carry > 0)
+  result.next
 end
 
 
@@ -56,4 +55,4 @@ l1.next = ListNode.new(4)
 l2 = ListNode.new(5)
 l2.next = ListNode.new(6)
 
-print add_two_number(l1, l2)
+print add_two_number(l1, l2) # 601
