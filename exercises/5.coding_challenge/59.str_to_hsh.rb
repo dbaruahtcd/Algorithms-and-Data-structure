@@ -20,6 +20,22 @@ def str_to_hash(str)
   hsh
 end
 
+def str_to_hsh_regex(str)
+  hsh = {}
+  return hsh if str.empty?
+  keys = str.scan(/[a-z]/)
+  val = str.scan(/[0-9]/)
+  for i in (0...keys.length)
+    hsh[keys[i].to_sym] = val[i].to_i
+  end
+  hsh
+end
+
 # puts str_to_hash("a=1, b=2, c=3, d=4")
+# puts str_to_hsh_regex("a=1, b=2, c=3, d=4")
 
 assert_equal(str_to_hash("a=1, b=2, c=3, d=4"),{ :a => 1, :b => 2, :c => 3, :d => 4})
+assert_equal(str_to_hash(""),{ })
+
+assert_equal(str_to_hsh_regex("a=1, b=2, c=3, d=4"),{ :a => 1, :b => 2, :c => 3, :d => 4})
+assert_equal(str_to_hsh_regex(""),{ })
