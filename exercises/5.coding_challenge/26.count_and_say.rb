@@ -31,15 +31,12 @@ Explanation: For n = 3 the term was "21" in which we have two groups "2" and "1"
 be read as "12" which means frequency = 1 and value = 2, the same way "1" is read as "11", 
 so the answer is the concatenation of "12" and "11" which is "1211".
 =end
-require 'byebug'
 def count_and_say(n)
-  
   return '1' if n == 1
   return '11' if n == 2
   curr_str = '11'
   j = 3
   while j <= n
-    debugger
     str_arr = curr_str.split('')
     str_at_index = ''
     for i in 0...(str_arr.length-1) do
@@ -62,11 +59,16 @@ def count_and_say(n)
   curr_str
 end
 
+require '../../spec_helper'
+# Space and time complexity: O(2^n)
+
 def count_and_say_imp(n)
   next_digit = '1'
   return next_digit if n == 1
   j = 2
   prev_digit = ''
+  local_running = ''
+  curr = ''
   cnt = 0
   while(j <= n)
     arr = next_digit.split('')
@@ -79,14 +81,13 @@ def count_and_say_imp(n)
       if prev_digit == d
         cnt += 1
       else
-        next_digit = "#{cnt}#{prev_digit}"
+        local_running += "#{cnt}#{prev_digit}"
         prev_digit = d
         cnt = 1
-        next_digit += "#{cnt}#{prev_digit}" if i == arr.length - 1
-        return next_digit
       end
     end
-    next_digit = "#{cnt}#{prev_digit}"
+    next_digit = "#{local_running}#{cnt}#{prev_digit}"
+    local_running = ''
     cnt = 0
     prev_digit = ''
     j += 1
@@ -94,10 +95,8 @@ def count_and_say_imp(n)
   next_digit
 end
 
-# puts count_and_say_imp(1)
-# puts count_and_say_imp(2)
-# puts count_and_say_imp(3)
-# puts count_and_say_imp(4) # 1211
-puts count_and_say_imp(5) #"111221"
-# puts count_and_say(3)
-# puts count_and_say_imp(4)
+assert_equal(count_and_say_imp(1), '1')
+assert_equal(count_and_say_imp(2), '11')
+assert_equal(count_and_say_imp(3), '21')
+assert_equal(count_and_say_imp(4), '1211')
+assert_equal(count_and_say_imp(5), '111221')

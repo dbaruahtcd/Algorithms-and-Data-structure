@@ -22,8 +22,8 @@ Could you do it without using any loop / recursion?
 =end
 require '../../spec_helper'
 
-# Time complexity: O(1)
-# Space complexity: O(log3n)
+# Space complexity: O(1)
+# Time complexity: O(log3n)
 def is_power_of_three(n)
   return false if n < 1
   while(n % 3 == 0)

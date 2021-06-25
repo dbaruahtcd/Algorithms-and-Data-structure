@@ -1,5 +1,6 @@
 # A collection of commonly used methods
 class LinkedListUtils
+  
   def self.print_list(list)
     return if list.nil?
     print "#{list.val} -> "
@@ -15,5 +16,14 @@ class LinkedListUtils
       curr = curr.next
     end
     head.next
+  end
+  
+  class ListNode
+    attr_accessor :val, :next
+    
+    def initialize(_val, _next = nil)
+      @val = _val
+      @next = _next
+    end
   end
 end

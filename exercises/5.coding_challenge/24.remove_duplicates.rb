@@ -24,6 +24,7 @@ require '../../spec_helper'
 # Time complexity: O(n) Assume that n is the length of array. Each of i and j traverses at most n steps.
 # Space complexity: O(1)
 def remove_duplicates(nums)
+  return 0 if nums.empty?
   i, j = 0, 1
   while(j < nums.length)
     if(nums[i] != nums[j])

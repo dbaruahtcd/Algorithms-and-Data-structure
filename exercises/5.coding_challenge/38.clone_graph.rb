@@ -36,8 +36,13 @@ Explanation: Note that the input contains one empty list. The graph consists of 
 =end
 
 
-def clone_graph(node)
+class DFSSolution
+  def initialize
+    @visited = {}
+  end
   
+  def cloneNode()
+  end
 end
 
 class Node 

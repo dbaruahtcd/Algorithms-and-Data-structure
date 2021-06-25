@@ -34,5 +34,6 @@ end
 
 nums = [-2,1,-3,4,-1,2,1,-5,4]
 nums2 = [1]
+
 puts max_sub_array(nums)
 puts max_sub_array(nums2)
